@@ -1,4 +1,16 @@
-#
+
+#######################################################
+# bootstrap Square zshrc; please don't change this bit.
+#######################################################
+if [[ -d "$HOME/Development" ]]; then
+  SQUARE_HOME=$HOME/Development
+fi
+export SQUARE_HOME
+if [[ -f "$SQUARE_HOME/config_files/square/zshrc" ]]; then
+  source $SQUARE_HOME/config_files/square/zshrc
+fi
+#######################################################
+
 # Executes commands at the start of an interactive session.
 #
 # Authors:
@@ -11,3 +23,62 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+###########################################
+# Feel free to make your own changes below.
+###########################################
+
+# uncomment to automatically `bundle exec` common ruby commands
+# if [[ -f "$SQUARE_HOME/config_files/square/bundler-exec.sh"]]; then
+#   source $SQUARE_HOME/config_files/square/bundler-exec.sh
+# fi
+
+if [ -e "$HOME/.aliases" ]; then
+  source "$HOME/.aliases"
+fi
+
+if [ -e "$HOME/.myaliases" ]; then
+  source "$HOME/.myaliases"
+fi
+
+if [ -e "$HOME/.localaliases" ]; then
+  source "$HOME/.localaliases"
+fi
+
+# Configure the current git user on shell startup.
+_pair_startup
+
+# User configuration
+
+#export PATH="/Users/hjz/Development/topsoil/bin:/opt/nginx/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/Users/hjz/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/square/bin"
+
+export PATH=$PATH:/usr/local/gcc-4.8.0-qt-4.8.4-for-mingw32/win32-gcc/bin
+export PATH=$PATH:~/bin
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# Preferred editor for local and remote sessions
+export EDITOR='vim'
+export VISUAL='vim'
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+zstyle ':completion:*' accept-exact '*(N)'
+
+__git_files () {
+    _wanted files expl 'local files' _files
+}
+
+unsetopt CORRECT                      # Disable autocorrect guesses. Happens when typing a wrong
+                                      # command that may look like an existing one.
+
+expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
+  echo -n "\e[31m......\e[0m"         # a command with the tab key, "Oh-my-zsh"-style.
+  zle expand-or-complete
+  zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
