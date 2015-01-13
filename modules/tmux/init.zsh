@@ -41,9 +41,13 @@ if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" && -z "$INSIDE_EMACS" && "$TERM_PRO
   exec tmux $_tmux_iterm_integration attach-session -d
 fi
 
+function new-tmux-from-dir-name { tmux new-session -As $(basename $PWD) }
+
 #
 # Aliases
 #
+alias tmn="new-tmux-from-dir-name"
+#alias tmuxa="tmux $_tmux_iterm_integration new-session -A"
+alias tml='tmux list-sessions'
 
-alias tmuxa="tmux $_tmux_iterm_integration new-session -A"
-alias tmuxl='tmux list-sessions'
+alias tma='tmux new-session -As'
