@@ -54,6 +54,7 @@ _pair_startup
 
 export PATH=$PATH:/usr/local/gcc-4.8.0-qt-4.8.4-for-mingw32/win32-gcc/bin
 export PATH=$PATH:~/bin
+export PATH=/usr/local/gcc-arm-none-eabi-4_9-2014q4/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
@@ -82,3 +83,9 @@ expand-or-complete-with-dots() {      # This bunch of code displays red dots whe
 }
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+
+# Set this to wherever you downloaded the android SDK
+export ANDROID_HOME=$HOME/android-sdk
+export ANDROID_NDK_HOME=$HOME/android-ndk
