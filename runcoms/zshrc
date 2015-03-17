@@ -1,14 +1,3 @@
-
-#######################################################
-# bootstrap Square zshrc; please don't change this bit.
-#######################################################
-if [[ -d "$HOME/Development" ]]; then
-  SQUARE_HOME=$HOME/Development
-fi
-export SQUARE_HOME
-if [[ -f "$SQUARE_HOME/config_files/square/zshrc" ]]; then
-  source $SQUARE_HOME/config_files/square/zshrc
-fi
 #######################################################
 
 # Executes commands at the start of an interactive session.
@@ -44,9 +33,6 @@ fi
 if [ -e "$HOME/.localaliases" ]; then
   source "$HOME/.localaliases"
 fi
-
-# Configure the current git user on shell startup.
-_pair_startup
 
 # User configuration
 
