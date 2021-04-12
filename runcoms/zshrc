@@ -11,13 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# User configuration
-
-export PATH=$PATH:~/bin
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 zstyle ':completion:*' accept-exact '*(N)'
 
 __git_files () {
